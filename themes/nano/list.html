@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}All posts{% endblock %}
+
+{% block content %}
+<header>
+<h1>All posts</h1>
+<p class="meta subdued">&nbsp;</p>
+</header>
+<ol class="posts">
+{% for post in posts | sort(reverse=true, attribute='created') %}
+<li>
+    <time class="subdued" datetime="{{ post.created.strftime('%Y-%m-%dT%H:%M%Z') }}">{{ post.created.strftime('%a, %e %b %Y') }}</time>
+    <a href="{{ post.path }}">{{ post.title | title }}</a>
+</li>
+{% endfor %}
+</ol>
+{% endblock %}

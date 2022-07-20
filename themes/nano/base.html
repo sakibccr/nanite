@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+{% include "partials/head.html" %}
+<title>{{ sitename }} – {% block title %}{% endblock %}</title>
+</head>
+<body>
+{% include "partials/header.html" %}
+<main>{% block content %}{% endblock %}</main>
+<footer>
+{% include "partials/footer.html" %}
+</footer>
+</body>
+</html>

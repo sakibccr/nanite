@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title | title }}{% endblock %}
+
+{% block content %}
+<article>
+<header>
+<img class="cover" src="{{ post.cover }}" alt="{% if post.alt is defined %} {{ post.alt }} {% else %} Cover photo {% endif %}">
+<h1>{{ post.title | title }}</h1>
+<p class="meta subdued"><time datetime="{{ post.created.strftime('%Y-%m-%dT%H:%M%Z') }}">{{ post.created.strftime('%a, %e %b %Y %H:%M:%S %Z') }}</time></p>
+</header>
+{{ post.content | safe }}
+</article>
+{% endblock %}
